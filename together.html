@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+	
+	<style>
+	  *{
+		   margin:0;
+		   padding:0;
+	   }
+	 
+	   .logo{
+	      padding:60px 0 0 0;
+	 	  text-align:center;
+	   }
+       	   
+	   .text{
+		   margin:90px 0 0 0;
+		   text-align:center;
+	   }
+
+	   .info1{
+	       margin:40px 0 0 0;
+		   text-align:center;
+	   }
+
+	   .text .g1{
+		   margin:0 30px 0 30px;
+		   opacity:0;
+	   }
+	  
+	   .new .g1{
+		   margin:0 0 0 0;
+		   transition:all 1.5s ease-out 0.3s;
+		   opacity:1;
+
+	   }.shield {
+	      width:500px;
+		  padding:80px 0 0 100px;
+		  display:block;
+		  float:left;
+	   }
+       .pic1{
+	     transform:translate(-30px,-30px) rotate(-45deg);
+	   }       
+	   .pic2{
+	     transform:translate(100px,-30px) rotate(10deg);
+	   }       
+	   .pic3{
+	     transform:translate(200px,-30px) rotate(45deg);
+	   }
+       .pic4{
+	     transform:translate(-30px,30px) rotate(-25deg);
+	   }
+	   .pic5{
+	     transform:translate(100px,30px) rotate(45deg);
+	   }
+	   .pic6{
+	     transform:translate(200px,60px) rotate(20deg);
+	   }	   
+	   .pic7{
+	     transform:translate(-30px,30px) rotate(-25deg);
+	   }
+	   .pic8{
+	     transform:translate(100px,90px) rotate(-15deg);
+	   }
+	   .pic9{
+	     transform:translate(200px,90px) rotate(30deg);
+	   }
+
+       .shield img{
+        opacity:0;
+	   }
+	   .new img{
+	   	  opacity:1;
+		  transform:translate(0,0) rotate(0deg);
+           transition:all 2s ease-out 0.3s; 
+	   }
+
+	   .info2 {	        
+		   padding:180px 0 0 20px;
+		   display:block;
+		   float:left;
+
+	   }
+	</style>
+	<div class="allpage">
+	<!--section 来决定分页的，所以每个页面都需要加上section class=""-->
+
+
+
+     <!--第一页-->
+
+     <div class="section page1">
+
+	     <!--360logo部分-->
+		 <div class="logo">
+              <img src="logo.png"/>
+	     </div>
+
+	     <!--插入图片：4亿网友共同信赖-->
+         <div class="text">
+			   <img src="text_1.png" class="g1"/>
+			   <img src="text_2.png" class="g1"/>
+			   <img src="text_3.png" class="g1"/> 
+			   <img src="text_4.png" class="g1"/> 
+			   <img src="text_5.png" class="g1"/>
+			   <img src="text_6.png" class="g1"/>
+			   <img src="text_7.png" class="g1"/>
+			   <img src="text_8.png" class="g1"/>    
+	     </div>
+
+	     <!--插入图片：更安全，更爽快，更智能，更时尚-->
+		 <div class="info1">
+			<img src="info_1.png"/>
+		 </div>
+
+         <!--字体的动态变化实现-->
+		 <script src="1-1.js">  </script>
+
+		 
+
+	 </div>
+     <!--第一页结束-->
+
+
+	 <!--第二页-->
+
+	 <div class="section page2">
+
+          <!--插入盾牌图片-->
+		  <div class="shield ">
+			   <img src="shield_1.png"class="pic1">
+			   <img src="shield_2.png"class="pic2">
+			   <img src="shield_3.png"class="pic3">
+			   <img src="shield_4.png"class="pic4">
+			   <img src="shield_5.png"class="pic5">
+			   <img src="shield_6.png"class="pic6">
+			   <img src="shield_7.png"class="pic7">
+			   <img src="shield_8.png"class="pic8">
+			   <img src="shield_9.png"class="pic9">
+	      </div>
+
+	      <!--插入盾牌右侧图片-->
+		  <div class="info2">
+			   <img src="info_2.png">
+		  </div>
+     
+          <!--盾牌的变化实现-->
+		  <script src="1-1.js"></script>
+
+		  
+
+	 </div>
+	 <!--第二页结束-->
+
+
+
+     <!--      1.引入库文件
+	 src 代表引入哪一个文件    	  -->
+     <script src="1.js"></script>
+     <script src="2.js"></script>
+	
+	<!--    	2.实现分页效果  	-->
+	 <script>
+	//$(".allpage") 找到整体页面的大盒子
+	//.fullpage() 代表让当前大盒子 里面的所有 使用了section
+	
+	      $(".allpage").fullpage({
+	         sectionsColor:["rgb(13,165,214)","rgb(42,182,96)"],
+             
+			 //插件提供的 功能，用于滚动到某一页，是调用这里的代码
+			 //a, b是系统提供的数据，b是滚动页面的序号
+			 //      a 我们现在用不到，就不管他。因为位置关系，不能省略
+			 //      b 是滚动页面的序号
+             afterLoad: function(a, b){
+				
+				if (b == 1)
+				{                
+				$(".text").removeClass("new");
+				 setTimeout(function(){
+					 $(".text").addClass("new");},500)
+				}
+                 
+				if (b == 2)
+				{
+                 $(".shield").removeClass("new");                  
+				 setTimeout(function(){
+					 $(".shield").addClass("new");},500)
+				}
+
+			}
+			
+	  });
+	
+	
+    </script>
+ </body>
+</html>
